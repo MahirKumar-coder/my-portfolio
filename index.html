@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahir - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #000021;
+            --secondary-bg: #12123E;
+            --primary-text: #FFFFFF;
+            --secondary-text: #a0aec0;
+            --accent-color: #aa6be4;
+            --accent-hover: #9c57e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* --- Navigation Bar --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            height: 80px;
+            background-color: var(--secondary-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav .right ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav .right ul li {
+            margin: 0 20px;
+        }
+
+        nav .right ul li a {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-second ul li a {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-third ul li a {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav .right ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-second .right ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-third .right ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .firstSection {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            /* Stacks image on top on mobile */
+            align-items: center;
+            justify-content: space-around;
+            min-height: calc(100vh - 80px);
+            padding: 40px;
+            gap: 2rem;
+        }
+
+        .leftSection {
+            flex-basis: 50%;
+            min-width: 300px;
+        }
+
+        .leftSection .greeting {
+            font-size: 1.8rem;
+        }
+
+        .leftSection .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .leftSection .role {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .leftSection .buttons {
+            margin-top: 2rem;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            margin: 0 10px 10px 0;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(170, 107, 228, 0.4);
+        }
+
+        .rightSection {
+            flex-basis: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightSection img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--accent-color);
+        }
+
+        /* --- Horizontal Rule --- */
+        hr {
+            border: 0;
+            background-color: var(--accent-color);
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        /* --- Second Section (Timeline) --- */
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .secondSection h1 {
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-container.right::after {
+            left: -16px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: var(--secondary-bg);
+            position: relative;
+            border-radius: 6px;
+        }
+
+        .content h2 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0e0e1a;
+            margin-top: 80px;
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 40px;
+            background-color: var(--secondary-bg);
+            color: white;
+        }
+
+        .footer>div {
+            margin: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-rights {
+            text-align: center;
+            padding: 12px 0;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+
+        /* --- Responsive Design --- */
+        @media screen and (max-width: 768px) {
+            nav .right {
+                display: none;
+                /* Hide desktop nav */
+            }
+
+            .firstSection {
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .leftSection {
+                align-items: center;
+                text-align: center;
+            }
+
+            .rightSection img {
+                width: 60%;
+                margin-bottom: 2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-container.left,
+            .timeline-container.right {
+                left: 0%;
+            }
+
+            .timeline-container::after {
+                left: 15px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(170, 107, 228, 0.2);
+            }
+
+            .project-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(170, 107, 228, 0.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Mahir's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="home">
+        <section class="firstSection">
+            <div class="leftSection">
+                <div class="greeting">Hey, My name is</div>
+                <div class="name">Mahir Kumar</div>
+                <div class="role">and I am a passionate</div>
+                <span id="element" class="role"></span>
+                <div class="buttons">
+                    <a href="Professional Resume.pdf" download="Mahir_Resume.pdf">
+
+                        <button class="btn">Download Resume</button>
+                    </a>
+                    <a href="https://github.com/MahirKumar-coder" target="_blank">
+
+                        <button class="btn">Visit GitHub</button>
+                    </a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="mahir.jpg" alt="Developer vector image">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection" id="experience">
+            <h1>Work Experience</h1>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="content">
+                        <h2>C/C++ (2020 - 2023)</h2>
+                        <p>Developed a comprehensive, console-based Library Management System in C.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="content">
+                        <h2>Graphic Designer (2024 - 2025)</h2>
+                        <p>Designed a complete, high-fidelity user interface for a hypothetical company's website using
+                            Figma.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="content">
+                        <h2>Java (2023 - 2025)</h2>
+                        <p>Developed a comprehensive, console-based Bank Management System using Java.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="content">
+                        <h2>Python (2025-Present)</h2>
+                        <p>Proficient in Python with a strong understanding of its core concepts, data structures, and
+                            libraries.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="content">
+                        <h2>Android Developer (2025-Present)</h2>
+                        <p>Developed a real-time chat application, "MK Messenger," for Android using Java and Firebase.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="content">
+                        <h2>Full Stack Developer (2016-Present)</h2>
+                        <p>Developed and deployed a full-stack URL shortening web application, "BitLink," using the MERN
+                            stack (MongoDB, Express.js, React/Next.js, Node.js).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" style="padding: 80px 15%; background-color: #0e0e1a; text-align: center;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">About Me</h1>
+            <p style="max-width: 800px; margin: 0 auto 30px; color: #a0aec0; line-height: 1.7;">
+                I am a passionate Computer Science student with a strong foundation in both software development and
+                graphic design. With proficiency in languages like Java, C++, and Python, alongside skills in web
+                development, I love building robust applications from the ground up. My creative side is fueled by my
+                expertise in UI/UX design using tools like Figma and Photoshop. I am driven by the challenge of solving
+                complex problems and creating intuitive, user-friendly experiences that blend technology with clean
+                design.
+            </p>
+        </section>
+        <section class="thirdSection" id="services"
+            style="padding: 80px 10%; background-color: var(--primary-bg); text-align: center;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 50px;">What I Offer</h1>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left;">
+
+                <div class="service-card"
+                    style="background-color: var(--secondary-bg); padding: 40px; border-radius: 10px; transition: all 0.3s ease;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                        class="bi bi-code-slash" viewBox="0 0 16 16"
+                        style="color: var(--accent-color); margin-bottom: 20px;">
+                        <path
+                            d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                    </svg>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Web Development</h3>
+                    <p style="color: #a0aec0; line-height: 1.7;">
+                        I build fast, responsive, and beautiful websites from scratch. From a simple portfolio to a
+                        complex full-stack application with a back-end and database, I can bring your ideas to life on
+                        the web.
+                    </p>
+                </div>
+
+                <div class="service-card"
+                    style="background-color: var(--secondary-bg); padding: 40px; border-radius: 10px; transition: all 0.3s ease;">
+                    <svg xmlns="http://www.w.org/2000/svg" width="48" height="48" fill="currentColor"
+                        class="bi bi-phone" viewBox="0 0 16 16"
+                        style="color: var(--accent-color); margin-bottom: 20px;">
+                        <path
+                            d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                    </svg>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Android App Development</h3>
+                    <p style="color: #a0aec0; line-height: 1.7;">
+                        I create native Android applications using Java. Whether it's a simple utility app or a
+                        real-time chat application like MK Messenger, I can build a functional and user-friendly mobile
+                        experience.
+                    </p>
+                </div>
+
+                <div class="service-card"
+                    style="background-color: var(--secondary-bg); padding: 40px; border-radius: 10px; transition: all 0.3s ease;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                        class="bi bi-palette" viewBox="0 0 16 16"
+                        style="color: var(--accent-color); margin-bottom: 20px;">
+                        <path
+                            d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM4 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM12 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                        <path
+                            d="M16 8c0 3.15-1.866 5.24-4.5 6.315-1.2.4-2.4.6-3.5.6s-2.3-.2-3.5-.6C1.866 13.24 0 11.15 0 8c0-3.15 1.866-5.24 4.5-6.315-1.2-.4-2.4-.6-3.5-.6s-2.3.2-3.5.6C1.866 2.76 0 4.85 0 8zm-1 0c0 2.45-1.44 4.095-3.5 4.9-1.2.4-2.3.6-3.5.6s-2.3-.2-3.5-.6C1.44 12.095 0 10.45 0 8c0-2.45 1.44-4.095 3.5-4.9-1.2-.4-2.3-.6-3.5-.6s-2.3.2-3.5.6C1.44 3.905 0 5.55 0 8z" />
+                    </svg>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">UI/UX & Graphic Design</h3>
+                    <p style="color: #a0aec0; line-height: 1.7;">
+                        I design clean, modern, and user-friendly interfaces for websites and mobile apps using Figma.
+                        My focus is on creating a great user experience that is both beautiful and easy to use.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <section class="fourthSection" id="projects" style="padding: 80px 10%; text-align: center;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 50px;">My Recent Work</h1>
+
+            <div class="projects-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+
+                <div class="project-card"
+                    style="background-color: var(--secondary-bg); border-radius: 10px; overflow: hidden; text-align: left; transition: all 0.3s ease;">
+                    <img src="bitlinks.png" alt="BitLink URL Shortener Project"
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-color);">BitLink - Full
+                            Stack URL Shortener</h3>
+                        <p style="color: #a0aec0; line-height: 1.7; margin-bottom: 20px;">
+                            A full-stack URL shortening web app built with the MERN stack. It allows users to convert
+                            long URLs into shareable short links with custom names.
+                        </p>
+                        <div class="tech-tags" style="margin-bottom: 25px;">
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Next.js</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Node.js</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahirKumar-coder/bitlinks" target="_blank" class="btn"
+                                style="text-decoration: none;">View Code</a>
+                            <a href="https://bitlinks-rouge-omega.vercel.app/" target="_blank" class="btn"
+                                style="background: #4A5568; text-decoration: none;">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card"
+                    style="background-color: var(--secondary-bg); border-radius: 10px; overflow: hidden; text-align: left; transition: all 0.3s ease;">
+                    <img src="mk.jpg" alt="MK Messenger App Project"
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-color);">MK Messenger -
+                            Android Chat App</h3>
+                        <p style="color: #a0aec0; line-height: 1.7; margin-bottom: 20px;">
+                            A real-time chat application for Android using Java and Firebase. It features user
+                            authentication, one-on-one text conversations, and a clean UI.
+                        </p>
+                        <div class="tech-tags" style="margin-bottom: 25px;">
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Java</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Android
+                                SDK</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahirKumar-coder/MKMessenger" target="_blank" class="btn"
+                                style="text-decoration: none;">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card"
+                    style="background-color: var(--secondary-bg); border-radius: 10px; overflow: hidden; text-align: left; transition: all 0.3s ease;">
+                    <img src="mg.png" alt="Figma UI Design Project"
+                        style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-color);">Company Website
+                            UI/UX Design</h3>
+                        <p style="color: #a0aec0; line-height: 1.7; margin-bottom: 20px;">
+                            A complete, high-fidelity user interface for a hypothetical company's website. The project
+                            included wireframes, mockups, and a clickable prototype.
+                        </p>
+                        <div class="tech-tags" style="margin-bottom: 25px;">
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Figma</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">UI/UX
+                                Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.figma.com/design/oygTfAumrZqpq8GQ097Bzp/Landing-Page-of-Mighty-Game-Ready?node-id=0-1&t=EC9HvkLLQ5EfgQWr-1"
+                                target="_blank" class="btn" style="text-decoration: none;">View on Figma</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card"
+                    style="background-color: var(--secondary-bg); border-radius: 10px; overflow: hidden; text-align: left; transition: all 0.3s ease;">
+                    <img src="https://via.placeholder.com/600x400/12123E/FFFFFF?text=Bank+System"
+                        alt="Bank Management System Project" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 25px;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-color);">Bank Management
+                            System (Java)</h3>
+                        <p style="color: #a0aec0; line-height: 1.7; margin-bottom: 20px;">
+                            A console-based application to simulate core banking operations, built using Object-Oriented
+                            Programming (OOP) principles in Java.
+                        </p>
+                        <div class="tech-tags" style="margin-bottom: 25px;">
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Java</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">OOP</span>
+                            <span
+                                style="background-color: #2d3748; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-right: 5px;">Console
+                                App</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahirKumar-coder/Bank-Management-System" target="_blank"
+                                class="btn" style="text-decoration: none;">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="contact" style="padding: 80px 10%; background-color: #0e0e1a; text-align: center;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Get in Touch</h1>
+            <p style="max-width: 600px; margin: 0 auto 50px; color: #a0aec0; line-height: 1.7;">
+                I'm currently looking for new opportunities, and my inbox is always open. Whether you have a question or
+                just want to say hi, I'll try my best to get back to you!
+            </p>
+
+            <div class="contact-container"
+                style="max-width: 800px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+
+                <form action="https://formspree.io/f/manpkrlp" method="POST" target="_blank" class="contact-form"
+                    style="flex: 1; min-width: 350px; text-align: left;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="name" style="display: block; margin-bottom: 5px; color: #a0aec0;">Your Name</label>
+                        <input type="text" id="name" name="name" required
+                            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #4A5568; background-color: var(--secondary-bg); color: white; font-size: 1rem;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="email" style="display: block; margin-bottom: 5px; color: #a0aec0;">Your
+                            Email</label>
+                        <input type="email" id="email" name="email" required
+                            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #4A5568; background-color: var(--secondary-bg); color: white; font-size: 1rem;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="message" style="display: block; margin-bottom: 5px; color: #a0aec0;">Message</label>
+                        <textarea id="message" name="message" rows="5" required
+                            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #4A5568; background-color: var(--secondary-bg); color: white; font-size: 1rem; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+
+            </div>
+
+            <div class="social-links" style="margin-top: 60px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #a0aec0;">You can also find me on:</h3>
+                <div style="display: flex; justify-content: center; gap: 30px;">
+                    <a href="https://www.linkedin.com/in/mahir-kumar/" target="_blank" title="LinkedIn"
+                        style="color: white; transition: color 0.3s ease;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-linkedin" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/MahirKumar-coder" target="_blank" title="GitHub"
+                        style="color: white; transition: color 0.3s ease;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-github" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/mahi66569" target="_blank" title="Twitter / X"
+                        style="color: white; transition: color 0.3s ease;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-twitter-x" viewBox="0 0 16 16">
+                            <path
+                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Mahir's Developer Portfolio</h3>
+            </div>
+            <div class="footer-second">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <h4>Socials</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/mahir-kumar/" title="LinkedIn" target="_blank">LinkedIn</a>
+                    </li>
+                    <li><a href="https://github.com/MahirKumar-coder" title="GitHub" target="_blank">GitHub</a></li>
+                    <li><a href="https://x.com/mahi66569" title="X" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/artfuldesiigns/" title="Instagram"
+                            target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &copy; mahirsportfolio.com | All rights reserved
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer.', 'UI/UX Designer.', 'Graphic Designer.'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
